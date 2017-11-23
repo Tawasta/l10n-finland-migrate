@@ -39,7 +39,7 @@ class AccountingReport(models.TransientModel):
             report = self.env['account.financial.report'].search([
                 ('company', '=', user.company_id.id),
                 ('code', '=', self._context['report_code'])
-            ])
+            ], limit=1)
 
             res['account_report_id'] = report.id
 
